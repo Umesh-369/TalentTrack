@@ -1,0 +1,31 @@
+spring:
+  jpa:
+    database-platform: org.hibernate.dialect.MySQLDialect
+    hibernate:
+      ddl-auto: validate
+    properties:
+      hibernate:
+        physical_naming_strategy: org.hibernate.boot.model.naming.CamelCaseToUnderscoresNamingStrategy
+  flyway:
+    enabled: true
+  cache:
+    type: none
+  data:
+    redis:
+      repositories:
+        enabled: false
+  security:
+    oauth2:
+      client:
+        registration:
+          google:
+            client-id: test-google-client-id.apps.googleusercontent.com
+            client-secret: test-google-client-secret
+
+app:
+  jwt:
+    secret: "test-secret-key-that-is-at-least-256-bits-long-and-should-be-kept-safe-1234567890"
+    access-token-expiration-ms: 60000 # 1 minute
+    refresh-token-expiration-ms: 600000 # 10 minutes
+  google:
+    client-id: test-google-client-id.apps.googleusercontent.com
